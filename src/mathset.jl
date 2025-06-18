@@ -43,6 +43,24 @@ pop!(s::MathSet) = pop!(s.set)
 popfirst!(s::MathSet) = popfirst!(s.set)
 
 ==(l::MathSet, r::MathSet) = ==(l.set, r.set)
+==(l::MathSet, r::AbstractSet) = ==(l.set, r)
+==(l::AbstractSet, r::MathSet) = ==(l, r.set)
+
+function ==(l::MathSet, r::AbstractVector)
+    if length(l) != length(r)
+        throw(DomainError("Set dimension is different from vector dimension. Convert to MathSet first."))
+    else
+        return ==(l, MathSet(r))
+    end
+end
+
+function ==(l::AbstractVector, r::MathSet)
+    if length(l) != length(r)
+        throw(DomainError("Set dimension is different from vector dimension. Convert to MathSet first."))
+    else
+        return ==(MathSet(l), r)
+    end
+end
 
 filter!(f::Function, s::MathSet) = filter!(f, s.set)
 
