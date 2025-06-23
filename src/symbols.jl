@@ -1,7 +1,9 @@
-ⅈ = im
-ⅉ = im
+Ω = MathSet
 
 ∅ = MathSet()
+
+ⅈ = im
+ⅉ = im
 
 ∑ = x -> sum(x; init=0)
 ∏ = x -> prod(x; init=1)
@@ -16,22 +18,31 @@
 ∧(x, y) = Bool(x) && Bool(y)
 ∨(x::Bool, y::Bool) = x || y
 ∨(x, y) = Bool(x) || Bool(y)
-¬(x) = !(x)
-¬(x::Bool) = !Bool(x)
+¬(x) = !Bool(x)
+¬(x::Bool) = !(x)
 ⋅(x, y) = x * y
 ≟(x,y) = ==(x,y)
+≝(x,y) = ==(x,y)
+≜(x,y) = ==(x,y)
 
-╲(x::Set, y::Set) = setdiff(x, y)
-╲(x::OrderedSet, y::OrderedSet) = setdiff(x, y)
 ╲(x::AbstractSet, y::AbstractSet) = setdiff(x, y)
-╲(x::MathSet, y::MathSet) = setdiff(x, y)
+╲(x::MathSet, y::MathSet) = MathSet(setdiff(x.set, y.set))
 
-\(x::MathSet, y::MathSet) = setdiff(x, y)
+\(x::MathSet, y::MathSet) = MathSet(setdiff(x.set, y.set))
 
-Ω(x::Vararg{Set}) = Set(Iterators.product(x...))
-Ω(x::Vararg{OrderedSet}) = OrderedSet(Iterators.product(x...))
-Ω(x::Vararg{AbstractSet}) = Set(Iterators.product(x...))
-Ω(x::Vararg{MathSet}) = Set(Iterators.product(x...))
+⊗(x::Vararg{AbstractSet}) = Set(Iterators.product(x...))
+⊗(x::Vararg{OrderedSet}) = OrderedSet(Iterators.product(x...))
+⊗(x::Vararg{MathSet}) = MathSet(Iterators.product(x...))
+
+⊂(x::AbstractSet,y::AbstractSet) = issubset(x,y)
+⊂(x::MathSet,y::MathSet) = issubset(x.set,y.set)
+⊄(x::AbstractSet,y::AbstractSet) = !issubset(x,y)
+⊄(x::MathSet,y::MathSet) = !issubset(x.set,y.set)
+
+⊃(x::AbstractSet,y::AbstractSet) = issubset(y,x)
+⊃(x::MathSet,y::MathSet) = issubset(y.set,x.set)
+⊅(x::AbstractSet,y::AbstractSet) = !issubset(y,x)
+⊅(x::MathSet,y::MathSet) = !issubset(y.set,x.set)
 
 ⪽(x::OrderedSet, y::AbstractRange) = OrderedSet(collect(x)[y])
 ⪽(x::OrderedSet, y::AbstractVector) = OrderedSet(collect(x)[y])

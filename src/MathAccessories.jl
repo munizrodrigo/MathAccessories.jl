@@ -9,10 +9,10 @@ import OrderedCollections: OrderedSet
 import Infinities: ∞
 
 export MathSet
+export Ω, ∅
 export ⅈ, ⅉ
-export ∅
-export ∑, ∏, ∥, ∠, °, ∡, ∗, ℜ, ℑ, ∧, ∨, ¬, ⋅, ≟
-export ╲, Ω, ⪽
+export ∑, ∏, ∥, ∠, °, ∡, ∗, ℜ, ℑ, ∧, ∨, ¬, ⋅, ≟, ≝, ≜
+export ╲, ⊗, ⪽, ⊂, ⊄, ⊃, ⊅
 export @∀
 export ∞
 
