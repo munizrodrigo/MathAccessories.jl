@@ -12,7 +12,7 @@ export MathSet
 export Ω, ∅
 export ⅈ, ⅉ
 export ∑, ∏, ∥, ∠, °, ∡, ∗, ℜ, ℑ, ∧, ∨, ¬, ⋅, ≟, ≝, ≜
-export ╲, ⊗, ⪽, ⊂, ⊄, ⊃, ⊅
+export ⋕, ╲, ⊗, ⪽, ⊂, ⊄, ⊃, ⊅
 export @∀
 export ∞
 

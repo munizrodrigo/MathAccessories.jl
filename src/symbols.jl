@@ -25,6 +25,8 @@
 ≝(x,y) = ==(x,y)
 ≜(x,y) = ==(x,y)
 
+⋕(x) = eachindex(x)
+
 ╲(x::AbstractSet, y::AbstractSet) = setdiff(x, y)
 ╲(x::MathSet, y::MathSet) = MathSet(setdiff(x.set, y.set))
 
