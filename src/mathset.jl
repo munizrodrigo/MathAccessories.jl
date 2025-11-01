@@ -19,6 +19,8 @@ show(io::IO, s::MathSet) = (show(io, typeof(s)); print(io, "("); !isempty(s) && 
 isempty(s::MathSet) = isempty(s.set)
 length(s::MathSet)  = length(s.set)
 
+getindex(s::MathSet, x) = getindex(s.set, x)
+
 sizehint!(s::MathSet, sz::Integer) = sizehint!(s.set, sz)
 
 in(x, s::MathSet) = in(x, s.set)
