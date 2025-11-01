@@ -1,9 +1,9 @@
 module MathAccessories
 
-import Base: \, ==, show, isempty, length, sizehint!, 
-             in, push!, pop!, delete!, empty, copy, 
-             empty!, emptymutable, copymutable, iterate,
-             popfirst!, filter!, hash
+import Base: \, ==, show, isempty, length, getindex,
+             sizehint!, in, push!, pop!, delete!, empty,
+             copy, empty!, emptymutable, copymutable, 
+             iterate, popfirst!, filter!, hash
 
 import OrderedCollections: OrderedSet
 import Infinities: ∞
